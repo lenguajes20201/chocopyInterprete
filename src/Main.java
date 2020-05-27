@@ -17,6 +17,10 @@ public class Main {
             ChocoPyParser parser = new ChocoPyParser(tokens);
             ParseTree tree = parser.program(); // Iniciar el analisis sintáctico en la regla inicial: r
             System.out.println(tree.toStringTree(parser)); // imprime el arbol al estilo LISP
+
+            MyVisitor<Object> loader = new MyVisitor<Object>();
+            loader.visit(tree);
+
         } catch (Exception e){
             System.err.println("Error (Test): " + e);
         }

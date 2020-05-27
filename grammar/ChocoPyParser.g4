@@ -3,8 +3,8 @@ parser grammar ChocoPyParser;
 options { tokenVocab=ChocoPyLexer; }
 
 program
-    : (var_def | func_def | class_def)* stmt* EOF
-    | COMMENT EOF
+    : (var_def | func_def | class_def)* stmt* EOF  #program_Decl
+    | COMMENT EOF #program_Comments
     ;
 
 class_def

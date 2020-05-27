@@ -6,12 +6,12 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/apps/antlr-4.8-complete.jar!/" />
+          <root url="jar://C:/Apps/antlr/antlr-4.8-complete.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

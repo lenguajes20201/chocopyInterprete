@@ -8,13 +8,13 @@ if z >= j:
     print(z)
 else:
     print(z-1)
-    
+
 for g in [1, 2, 3]:
     print(g)
-        
+
 d = [1,2,3] + [4,5,6] + [7,8,9] # Concatenación
 while i < len(d):
     print(d[i])
     i = i + 1
-    
+
 print(3 if (1==2) else 4)
