@@ -1,20 +1,20 @@
-class animal (object):
-    makes_noise : bool = False
+z: int = 3
+j: int = 1
+g:int = 0
+d:[int] = None
+i:int = 2
 
-    def make_noise (self:"animal") -> object :
-         if ( self . makes_noise ) :
-            print ( self . sound () )
-
-    def sound ( self : " animal ") -> str :
-        return "??? "
-
-class cow ( animal ) :
-    def __init__ ( self : "cow ") :
-        self . makes_noise = True
-
-    def sound ( self : "cow") -> str :
-        return "moo "
-
-c : animal = None
-c = cow ()
-c . make_noise () # Prints "moo"
+if z >= j:
+    print(z)
+else:
+    print(z-1)
+    
+for g in [1, 2, 3]:
+    print(g)
+        
+d = [1,2,3] + [4,5,6] + [7,8,9] # Concatenación
+while i < len(d):
+    print(d[i])
+    i = i + 1
+    
+print(3 if (1==2) else 4)

@@ -4,19 +4,20 @@ options { tokenVocab=ChocoPyLexer; }
 
 program
     : (var_def | func_def | class_def)* stmt* EOF
+    | COMMENT EOF
     ;
 
 class_def
-    : CLASS IDENTIFIER OPEN_PAREN IDENTIFIER CLOSE_PAREN COLON LINE_BREAK INDENT class_body DEDENT
+    : CLASS IDENTIFIER OPEN_PAREN IDENTIFIER CLOSE_PAREN COLON NEWLINE INDENT class_body DEDENT
     ;
 
 class_body
-    : PASS LINE_BREAK
+    : PASS NEWLINE
     | (var_def | func_def)+
     ;
 
 func_def
-    : DEF IDENTIFIER OPEN_PAREN (typed_var (COMMA typed_var)*)? CLOSE_PAREN (ARROW type)? COLON LINE_BREAK INDENT func_body DEDENT
+    : DEF IDENTIFIER OPEN_PAREN (typed_var (COMMA typed_var)*)? CLOSE_PAREN (ARROW type)? COLON NEWLINE INDENT func_body DEDENT
     ;
 
 func_body
@@ -32,22 +33,23 @@ type
     ;
 
 global_decl
-    : GLOBAL IDENTIFIER LINE_BREAK
+    : GLOBAL IDENTIFIER NEWLINE
     ;
 
 nonlocal_decl
-    : NONLOCAL IDENTIFIER LINE_BREAK
+    : NONLOCAL IDENTIFIER NEWLINE
     ;
 
 var_def
-    : typed_var ASSIGN literal LINE_BREAK
+    : typed_var ASSIGN literal NEWLINE
     ;
 
 stmt
-    : simple_stmt LINE_BREAK
+    : simple_stmt NEWLINE?
     | IF expr COLON block (ELIF expr COLON block)* (ELSE COLON block)?
     | WHILE expr COLON block
     | FOR IDENTIFIER IN expr COLON block
+    | COMMENT
     ;
 
 simple_stmt
@@ -58,7 +60,7 @@ simple_stmt
     ;
 
 block
-    : LINE_BREAK INDENT stmt+ DEDENT
+    : NEWLINE INDENT stmt+ DEDENT
     ;
 
 literal
@@ -102,3 +104,4 @@ target
     | cexpr DOT IDENTIFIER
     | cexpr OPEN_BRACKET expr CLOSE_BRACKET
     ;
+
